@@ -3,7 +3,7 @@
 Scripted solutions used in my MBA for corporate finance, and securities related courses.
 
 
-# Description
+## Description
 
 Personal playground to attempt our homework problems in python as opposed to Excel. These are not assignement answers nor do I advocate using them for solving homework problems. They are purely educational and entertainment of my own devices.
 
