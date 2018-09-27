@@ -38,9 +38,9 @@ E.G.   PV(debt shield) = Tc Rd (debt) / Rdisc   where:
   > NOTE: the -f parameter is required, and should be a string equivalent of a python function of x,y,z that can be evaluated e.g. x*y*z  MUST BE LOWERCASE
 
 Example Run:
-'''
+```
 python3 PV_TaxShield_plot.py -x 0.06 0.07 -y 0.4 0.3 -z 0.6 0.8 -f "(x*y*150)/z"
-'''
+```
 
 In this example we are performing the sensitivity analysis for the PV for the ranges:
 - Rd      6% - 7%
