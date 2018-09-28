@@ -1,12 +1,6 @@
-# Corporate Finance Python Library
+# PV_TaxShield_Plot.py
 
-Scripted solutions used in my MBA for corporate finance, and securities related courses.
-
-
-## Description
-
-Personal playground to attempt our homework problems in python as opposed to Excel. These are not assignement answers nor do I advocate using them for solving homework problems. They are purely educational and entertainment of my own devices.
-
+Script used to calculate the present value of debt for a financing decision undertaken by a firm. Used to visualize the sensitivity analysis performed for a PV calculation provided a range of at most 3 variables.
 
 ## Prerequisites
 
@@ -20,14 +14,11 @@ In no specific order:
   + argparse
 
 
-## Corporate Finance Suite
+### Running the script
 
 This section will detail each of the scripts and their common corporate finance applications & potentially other translational uses.
 
 
-### PV_TaxShield_Plot.py
-
-Script used to calculate the present value of debt for a financing decision undertaken by a firm. Used to visualize the sensitivity analysis performed for a PV calculation provided a range of at most 3 variables.
 
 E.G.   PV(debt shield) = Tc Rd (debt) / Rdisc   where:
   - Rd      is the debt rate
@@ -47,8 +38,15 @@ In this example we are performing the sensitivity analysis for the PV for the ra
 - Tc      30% - 40%
 - Rdisc   6% - 8%
 
-Output:
+
+
+### Sample Output:
 ![alt text](https://raw.githubusercontent.com/morendav/Corporate_Finance/master/PV_TaxShield/samples/PV_CorpTaxShield.png)
 
 
-### More to come...
+## Version
+
+### V 1.01
+  + 3 intake variable parameters with defaults included
+  + output graph with interaction enabled
+  + single color scale for all plots on same graph
