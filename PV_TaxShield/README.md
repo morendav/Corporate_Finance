@@ -48,7 +48,7 @@ In this example we are performing the sensitivity analysis for the PV for the ra
 - Rdisc   6% - 8%
 
 Output:
-![alt text](https://raw.githubusercontent.com/morendav/Corporate_Finance/master/samples/PV_CorpTaxShield.png)
+![alt text](https://raw.githubusercontent.com/morendav/Corporate_Finance/master/PV_TaxShield/samples/PV_CorpTaxShield.png)
 
 
 ### More to come...
