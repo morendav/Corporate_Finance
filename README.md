@@ -15,7 +15,7 @@ There are a number of common and likely a handful of obscure python modules used
 
 ## Script Threading
 
-As these scripts mature there will be scripts that rely on the existintence of support ie auxilliary scripts. When this is the case it will be called out in the readme of each respective script directory. When this is the case the directories would need to be kept as the same names and locations as they are present in this repo.
+As these scripts mature there will be scripts that rely on the existence of support ie ancillary scripts. When this is the case it will be called out in the readme of each respective script directory. When this is the case the directories would need to be kept as the same names and locations as they are present in this repo.
 
 ### License
 

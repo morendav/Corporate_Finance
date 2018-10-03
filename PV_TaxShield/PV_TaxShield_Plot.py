@@ -44,7 +44,7 @@ f=args.funct
 # create arrays for coorindates in cartesian space
 x_array = np.linspace(x_bound[0],x_bound[1],100)
 y_array = np.linspace(y_bound[0],y_bound[1],100)
-z_array = np.linspace(z_bound[0],z_bound[1],10)
+z_array = np.linspace(z_bound[0],z_bound[1],6)
 # create independent variable mesh grid (ie 2d plane representing x plane and y plane, respective to axis
 x, y = np.meshgrid( x_array, y_array )
 f_xyz={}
