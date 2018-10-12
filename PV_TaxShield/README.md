@@ -16,10 +16,6 @@ In no specific order:
 
 ### Running the script
 
-This section will detail each of the scripts and their common corporate finance applications & potentially other translational uses.
-
-
-
 E.G.   PV(debt shield) = Tc Rd (debt) / Rdisc   where:
   - Rd      is the debt rate
   - Tc      is the tax rate
