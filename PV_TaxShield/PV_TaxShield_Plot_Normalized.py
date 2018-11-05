@@ -39,13 +39,49 @@ z_bound=args.zArray
 f=args.funct
 
 
+
+
+
+def cmap_map(function, cmap):
+    """ Applies function (which should operate on vectors of shape 3: [r, g, b]), on colormap cmap.
+    This routine will break any discontinuous points in a colormap.
+    """
+    cdict = cmap._segmentdata
+    step_dict = {}
+    # First get the list of points where the segments start or end
+    for key in ('red', 'green', 'blue'):
+        step_dict[key] = list(map(lambda x: x[0], cdict[key]))
+    step_list = sum(step_dict.values(), [])
+    step_list = np.array(list(set(step_list)))
+    # Then compute the LUT, and apply the function to the LUT
+    reduced_cmap = lambda step : np.array(cmap(step)[0:3])
+    old_LUT = np.array(list(map(reduced_cmap, step_list)))
+    new_LUT = np.array(list(map(function, old_LUT)))
+    # Now try to make a minimal segment definition of the new LUT
+    cdict = {}
+    for i, key in enumerate(['red','green','blue']):
+        this_cdict = {}
+        for j, step in enumerate(step_list):
+            if step in step_dict[key]:
+                this_cdict[step] = new_LUT[j, i]
+            elif new_LUT[j,i] != old_LUT[j, i]:
+                this_cdict[step] = new_LUT[j, i]
+        colorvector = list(map(lambda x: x + (x[1], ), this_cdict.items()))
+        colorvector.sort()
+        cdict[key] = colorvector
+
+    return matplotlib.colors.LinearSegmentedColormap('colormap',cdict,1024)
+### Change the colormap per iteration
+
+
 #######################################
 ###     CodeBlock: 3d Variable definition
 #######################################
 # create arrays for coorindates in cartesian space
 x_array = np.linspace(x_bound[0],x_bound[1],100)
 y_array = np.linspace(y_bound[0],y_bound[1],100)
-z_array = np.linspace(z_bound[0],z_bound[1],6)
+z_array = np.linspace(z_bound[0],z_bound[1],12)
+z_array.sort() # sort the z array to make hte normalization make sense
 # create independent variable mesh grid (ie 2d plane representing x plane and y plane, respective to axis
 x, y = np.meshgrid( x_array, y_array )
 f_xyz={}
@@ -61,8 +97,11 @@ ax.set_xlabel('x')
 ax.set_ylabel('y')
 ax.set_zlabel('z')
 
+# evaluate dependent variable function(xyz) against x and y and z arrays iteratively
 for ind,z in zip(range(0,len(z_array)), z_array):
     f_xyz[ind] =  eval(f)
-    ax.plot_surface(x, y, f_xyz[ind], rstride=10, cstride=10, cmap=cm.viridis)
+    colorMap = cmap_map(lambda x: (x/2 + (0.5-0.1*ind)), matplotlib.cm.jet)
+    ax.plot_surface(x, y, f_xyz[ind], rstride=10, cstride=10, cmap=colorMap)
 
+print(z_array)
 plt.show()
